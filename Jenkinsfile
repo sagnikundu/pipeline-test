@@ -23,6 +23,7 @@ pipeline {
                 echo 'Testing the app ..'
 		sh 'mocha'
             }
+	}
         stage('Stop') {
             steps {
                 echo 'Stoping the app ..'
@@ -31,3 +32,4 @@ pipeline {
         }
     }
 }
+
