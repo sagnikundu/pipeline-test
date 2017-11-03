@@ -1,7 +1,6 @@
 pipeline {
     agent any
 
-    stages {
         stage('Checkout') {
             echo 'Getting source code...'
             checkout scm
@@ -22,6 +21,5 @@ pipeline {
                 echo 'Stoping the app ..'
                 sh 'pm2 stop app.js'
         }
-    }
 }
 
