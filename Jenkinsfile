@@ -34,8 +34,7 @@ pipeline {
     }
     post {
       success {
-		sh "sleep 5s"
-                sh "tar -zcvf 'myapp_${env.BUILD_NUMBER}.tar.gz' ."
+                sh "tar -zcvf 'myapp_${env.BUILD_NUMBER}.tar.gz' . --exclude='*.git*'"
                 archiveArtifacts artifacts: '*.tar.gz', fingerprint: true ,
                 onlyIfSuccessful: true
       }
