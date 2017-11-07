@@ -3,8 +3,10 @@ pipeline {
       stages{
         stage('Checkout') {
 	  steps {
-            echo 'Getting source code...'
             checkout scm
+	    dir ('tarball') {
+                   //writeFile file:'dummy', text:''
+                }
 	  }
         }
         stage('Build') {
@@ -34,7 +36,7 @@ pipeline {
     }
     post {
       success {
-                sh "tar -zcvf 'myapp_${env.BUILD_NUMBER}.tar.gz' . --exclude='*.git*'"
+                sh "sudo tar -zcvf 'myapp_${env.BUILD_NUMBER}.tar.gz' tarball/  --exclude='*.git*'"
                 archiveArtifacts artifacts: '*.tar.gz', fingerprint: true ,
                 onlyIfSuccessful: true
       }
