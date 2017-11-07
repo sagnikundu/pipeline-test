@@ -5,7 +5,7 @@ pipeline {
 	  steps {
             checkout scm
 	    dir ('tarball') {
-                   //writeFile file:'dummy', text:''
+                   writeFile file:'dummy', text:'dummy file'
                 }
 	  }
         }
@@ -36,7 +36,7 @@ pipeline {
     }
     post {
       success {
-                sh "tar -zcvf 'myapp_${env.BUILD_NUMBER}.tar.gz' tarball/  --exclude='*.git*'"
+                sh "tar -zcvf tarball/'myapp_${env.BUILD_NUMBER}.tar.gz' .  --exclude='*.git*'"
                 archiveArtifacts artifacts: '*.tar.gz', fingerprint: true ,
                 onlyIfSuccessful: true
       }
