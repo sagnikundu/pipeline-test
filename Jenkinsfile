@@ -32,5 +32,15 @@ pipeline {
 	  }
         }
     }
+    post {
+      success {
+                sh "tar -zcvf 'myapp_${env.BUILD_NUMBER}.tar.gz' ."
+                archiveArtifacts artifacts: '*.tar.gz', fingerprint: true ,
+                onlyIfSuccessful: true
+      }
+      failure {
+		echo 'Failed to create artifacts ...'
+      }
+    }
 }
 
