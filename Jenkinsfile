@@ -36,7 +36,7 @@ pipeline {
     }
     post {
       success {
-                sh "tar -zcvf tarball/'myapp_${env.BUILD_NUMBER}.tar.gz' .  --exclude='*.git*'"
+                sh "tar -zcvf tarball/'myapp_${env.BUILD_NUMBER}.tar.gz' .  --exclude='node_modules' --exclude='*.git*'"
                 archiveArtifacts artifacts: 'tarball/*.tar.gz', fingerprint: true ,
                 onlyIfSuccessful: true
       }
