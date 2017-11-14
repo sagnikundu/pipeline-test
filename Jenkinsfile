@@ -12,6 +12,7 @@ pipeline {
         stage('Build') {
 	  steps {
                 echo 'Building'
+                sh 'ls -ltr'
 		sh 'npm install'
 	  }
         }
