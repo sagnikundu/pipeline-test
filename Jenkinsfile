@@ -28,7 +28,7 @@ pipeline {
 	//	sh 'mocha'
 	 // }
 	//}
-        stage('Stop') {
+        stage('***Stop') {
 	  steps {
                 echo 'Stoping the app ..'
                 sh 'pm2 stop app.js'
