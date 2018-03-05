@@ -35,7 +35,7 @@ pipeline {
                 //onlyIfSuccessful: true
       }
       //failure {
-		echo 'Failed to create artifacts ...'
+	//	echo 'Failed to create artifacts ...'
      // }
     //}
 }
