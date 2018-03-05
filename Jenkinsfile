@@ -1,17 +1,7 @@
 pipeline {
-    agent any
-    parameters{
-    string(name: 'BRANCH_NAME', defaultValue: 'master', description: 'Branch to checkout' )
-   }
+    agent none
+
       stages{
-        stage('Checkout') {
-	  steps {
-            checkout([$class: 'GitSCM', branches: [[name: "$params.BRANCH_NAME"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/sagnikundu/pipeline-test.git']]])
-	    dir ('tarball') {
-                   writeFile file:'dummy', text:'dummy file'
-                }
-	  }
-        }
         stage('Build') {
 	  steps {
                 echo 'Building'
