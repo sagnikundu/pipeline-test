@@ -22,7 +22,7 @@ pipeline {
 		sh 'pm2 start app.js'
 	  }
         }
-        stage('Test') {
+        stage('****Test****') {
 	  steps {
                 echo 'Testing the app ..'
 		sh 'mocha'
