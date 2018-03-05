@@ -22,12 +22,12 @@ pipeline {
 		sh 'pm2 start app.js'
 	  }
         }
-        stage('Test') {
-	  steps {
-                echo 'Testing the app ..'
-		sh 'mocha'
-	  }
-	}
+        //stage('Test') {
+	 // steps {
+          //      echo 'Testing the app ..'
+	//	sh 'mocha'
+	 // }
+	//}
         stage('Stop') {
 	  steps {
                 echo 'Stoping the app ..'
